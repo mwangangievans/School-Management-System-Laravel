@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $user2 = User::create([
             'name'          => 'Teacher',
-            'email'         => 'teacher@demo.com',
+            'email'         => 'mark@gmail.com',
             'password'      => bcrypt('12345678'),
             'created_at'    => date("Y-m-d H:i:s")
         ]);
@@ -35,16 +35,17 @@ class DatabaseSeeder extends Seeder
 
         $user3 = User::create([
             'name'          => 'Parent',
-            'email'         => 'parent@demo.com',
+            'email'         => 'evans/parent@gmail.com',
             'password'      => bcrypt('12345678'),
             'created_at'    => date("Y-m-d H:i:s")
-        ]);
+        ]
+    );
         $user3->assignRole('Parent');
 
         $user4 = User::create([
             'name'          => 'Student',
-            'email'         => 'student@demo.com',
-            'password'      => bcrypt('12345678'),
+            'email'         => 'evans/parent@gmail.com',
+            'password'      => bcrypt('+254798288410'),
             'created_at'    => date("Y-m-d H:i:s")
         ]);
         $user4->assignRole('Student');
@@ -54,10 +55,10 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id'           => $user2->id,
                 'gender'            => 'male',
-                'phone'             => '0123456789',
-                'dateofbirth'       => '1993-04-11',
-                'current_address'   => 'Dhaka-1215',
-                'permanent_address' => 'Dhaka-1215',
+                'phone'             => '+254787400637',
+                'dateofbirth'       => '2021-04-25',
+                'current_address'   => 'Mombasa',
+                'permanent_address' => 'Mombasa',
                 'created_at'        => date("Y-m-d H:i:s")
             ]
         ]);
