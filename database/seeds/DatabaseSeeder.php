@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $user2 = User::create([
             'name'          => 'Teacher',
-            'email'         => 'mark@gmail.com',
+            'email'         => 'teacher@demo.com',
             'password'      => bcrypt('12345678'),
             'created_at'    => date("Y-m-d H:i:s")
         ]);
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
 
         $user3 = User::create([
             'name'          => 'Parent',
-            'email'         => 'evans/parent@gmail.com',
+            'email'         => 'parent@demo.com',
             'password'      => bcrypt('12345678'),
             'created_at'    => date("Y-m-d H:i:s")
         ]
@@ -44,8 +44,8 @@ class DatabaseSeeder extends Seeder
 
         $user4 = User::create([
             'name'          => 'Student',
-            'email'         => 'evans/parent@gmail.com',
-            'password'      => bcrypt('+254798288410'),
+            'email'         => 'student@demo.com',
+            'password'      => bcrypt('12345678'),
             'created_at'    => date("Y-m-d H:i:s")
         ]);
         $user4->assignRole('Student');
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id'           => $user3->id,
                 'gender'            => 'male',
-                'phone'             => '0123456789',
+                'phone'             => '+254787400637',
                 'current_address'   => 'Dhaka-1215',
                 'permanent_address' => 'Dhaka-1215',
                 'created_at'        => date("Y-m-d H:i:s")
@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
                 'class_id'          => 1,
                 'roll_number'       => 1,
                 'gender'            => 'male',
-                'phone'             => '0123456789',
+                'phone'             => '+254787400637',
                 'dateofbirth'       => '1993-04-11',
                 'current_address'   => 'Dhaka-1215',
                 'permanent_address' => 'Dhaka-1215',
