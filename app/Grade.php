@@ -15,7 +15,7 @@ class Grade extends Model
 
     public function students()
     {
-        return $this->hasMany(Student::class,'class_id');
+        return $this->hasMany(Student::class,'class_id', 'teacher_id');
     }
 
     public function subjects()
@@ -23,7 +23,7 @@ class Grade extends Model
         return $this->belongsToMany(Subject::class);
     }
 
-    public function teacher() 
+    public function teacher()
     {
         return $this->belongsTo(Teacher::class);
     }
