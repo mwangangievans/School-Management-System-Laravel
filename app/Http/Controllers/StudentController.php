@@ -6,6 +6,7 @@ use App\User;
 use App\Grade;
 use App\Parents;
 use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -44,8 +45,10 @@ class StudentController extends Controller
     {
         $classes = Grade::latest()->get();
         $parents = Parents::with('user')->latest()->get();
+        $teachers = Teacher::with('user')->latest()->get();
 
-        return view('backend.students.create', compact('classes','parents'));
+
+        return view('backend.students.create', compact('classes','parents','teachers'));
     }
 
     /**
@@ -64,6 +67,7 @@ class StudentController extends Controller
             'email'             => 'required|string|email|max:255|unique:users',
             'password'          => 'required|string|min:8',
             'parent_id'         => 'required|numeric',
+            'teacher_id'         => 'required|numeric',
             'class_id'          => 'required|numeric',
             'roll_number'       => [
                 'required',
@@ -97,6 +101,7 @@ class StudentController extends Controller
 
         $user->student()->create([
             'parent_id'         => $request->parent_id,
+            'teacher_id'         => $request->teacher_id,
             'class_id'          => $request->class_id,
             'roll_number'       => $request->roll_number,
             'gender'            => $request->gender,
@@ -151,6 +156,7 @@ class StudentController extends Controller
             'name'              => 'required|string|max:255',
             'email'             => 'required|string|email|max:255|unique:users,email,'.$student->user_id,
             'parent_id'         => 'required|numeric',
+            // 'teacher_id'         => 'required|numeric',
             'class_id'          => 'required|numeric',
             'roll_number'       => [
                 'required',
@@ -181,6 +187,7 @@ class StudentController extends Controller
 
         $student->update([
             'parent_id'         => $request->parent_id,
+            //  'teacher_id'         => $request->teacher_id,
             'class_id'          => $request->class_id,
             'roll_number'       => $request->roll_number,
             'gender'            => $request->gender,

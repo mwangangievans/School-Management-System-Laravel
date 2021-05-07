@@ -210,15 +210,15 @@
                         </button>
                     </div>
                 </div>
-            </form>        
+            </form>
         </div>
-        
+
     </div>
 @endsection
 
 @push('scripts')
 <script>
-    $(function() {       
+    $(function() {
         $( "#datepicker-se" ).datepicker({ dateFormat: 'yy-mm-dd' });
     })
 </script>

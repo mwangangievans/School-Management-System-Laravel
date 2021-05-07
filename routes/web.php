@@ -83,42 +83,27 @@ Route::group(['middleware' => ['auth','role:Admin']], function ()
     Route::post('/Admin/parent/sms', 'TwilioController@storePhoneNumber');
     Route::post('/Admin/parent/custom', 'TwilioController@sendCustomMessage');
 
-
     Route::get('/Admin/student/sms', 'TwilioController@show');
     Route::post('/Admin/student/sms', 'TwilioController@storePhoneNumber');
     Route::post('/Admin/student/custom', 'TwilioController@sendCustomMessage');
-
-
-//Route::post('/create', 'UnitController@store');
-
 });
-
 Route::group(['middleware' => ['auth','role:Teacher']], function ()
 {
     Route::post('attendance', 'AttendanceController@store')->name('teacher.attendance.store');
     Route::get('attendance-create/{id}', 'AttendanceController@createByTeacher')->name('teacher.attendance.create');
-
-
-    Route::get('/teacher/sms', 'TwilioController@show');
-    Route::post('/teacher/sms', 'TwilioController@storePhoneNumber');
-    Route::post('/teacher/custom', 'TwilioController@sendCustomMessage');
-//Route::post('/create', 'UnitController@store');
+    Route::get('/teacher/students/sms', 'TwilioController@student');
+    Route::post('/teacher/student/sms', 'TwilioController@storePhoneNumber');
+    Route::post('/teacher/student/custom', 'TwilioController@sendCustomMessage');
 });
-
 Route::group(['middleware' => ['auth','role:Parent']], function ()
 {
     Route::get('attendance/{id}', 'AttendanceController@show')->name('attendance.show');
-
     Route::get('/parent/sms', 'TwilioController@show');
     Route::post('/parent/sms', 'TwilioController@storePhoneNumber');
     Route::post('/parent/custom', 'TwilioController@sendCustomMessage');
 });
-
 Route::group(['middleware' => ['auth','role:Student']], function () {
-
-
     Route::get('/student/sms', 'TwilioController@show');
     Route::post('/student/sms', 'TwilioController@storePhoneNumber');
     Route::post('/student/custom', 'TwilioController@sendCustomMessage');
-
 });

@@ -29,7 +29,7 @@ class GradeController extends Controller
     public function create()
     {
         $teachers = Teacher::latest()->get();
-        
+
         return view('backend.classes.create', compact('teachers'));
     }
 
@@ -120,7 +120,7 @@ class GradeController extends Controller
     public function destroy($id)
     {
         $class = Grade::findOrFail($id);
-        
+
         $class->subjects()->detach();
         $class->delete();
 
@@ -128,8 +128,8 @@ class GradeController extends Controller
     }
 
     /*
-     * Assign Subjects to Grade 
-     * 
+     * Assign Subjects to Grade
+     *
      * @return \Illuminate\Http\Response
      */
     public function assignSubject($classid)
@@ -141,8 +141,8 @@ class GradeController extends Controller
     }
 
     /*
-     * Add Assigned Subjects to Grade 
-     * 
+     * Add Assigned Subjects to Grade
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

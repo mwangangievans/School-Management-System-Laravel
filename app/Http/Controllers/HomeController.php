@@ -43,16 +43,15 @@ class HomeController extends Controller
 
         } elseif ($user->hasRole('Teacher')) {
 
-            $teacher = Teacher::latest()->with(['user','subjects','classes','students'])->withCount('subjects','classes')->findOrFail($user->teacher->id);
+            $teacher = Teacher::latest()->with(['user','subjects','classes','students','stud'])->withCount('subjects','classes')->findOrFail($user->teacher->id);
 
         //$student = Student::with(['user','parent','classes','attendances']);
-            $students = Student::with(['user','parent','class','attendances'])->get();
-
+            // $students = Teacher::latest()->with(['user','subjects','classes','students','stud'])->withCount('subjects','classes')->findOrFail($user->teacher->id);
 
              //return view('backend.teachers.sms', compact("lectures"));
 
 
-            return view('home', compact('teacher','students'));
+            return view('home', compact('teacher'));
 
         } elseif ($user->hasRole('Parent')) {
 

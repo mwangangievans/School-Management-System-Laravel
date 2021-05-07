@@ -25,8 +25,4 @@ class Parents extends Model
     {
         return $this->hasMany(Student::class, 'parent_id');
     }
-    public function message()
-    {
-        return $this->hasMany(Message::class, 'parent_id');
-    }
 }

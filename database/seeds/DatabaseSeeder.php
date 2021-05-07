@@ -77,14 +77,15 @@ class DatabaseSeeder extends Seeder
         DB::table('grades')->insert([
             'teacher_id'        => 1,
             'class_numeric'     => 1,
-            'class_name'        => 'One',
-            'class_description' => 'class one'
+            'class_name'        => 'MKU 60',
+            'class_description' => 'MKU 60 NAIROBI CAMPUS'
         ]);
 
         DB::table('students')->insert([
             [
                 'user_id'           => $user4->id,
                 'parent_id'         => 1,
+                'teacher_id'         => 1,
                 'class_id'          => 1,
                 'roll_number'       => 1,
                 'gender'            => 'male',

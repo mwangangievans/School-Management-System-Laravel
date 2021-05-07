@@ -33,11 +33,9 @@ class Teacher extends Model
     public function students()
     {
         return $this->classes()->withCount('students');
-
     }
-
-    public function message()
+    public function stud()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Student::class);
     }
 }

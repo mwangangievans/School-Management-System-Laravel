@@ -9,6 +9,7 @@ class Student extends Model
     protected $fillable = [
         'user_id',
         'parent_id',
+        'teacher_id',
         'class_id',
         'roll_number',
         'gender',
@@ -26,8 +27,6 @@ class Student extends Model
     public function parent()
     {
         return $this->belongsTo(Parents::class);
-                return $this->belongsTo(Teacher::class);
-
     }
 
     public function class()
@@ -39,8 +38,9 @@ class Student extends Model
     {
         return $this->hasMany(Attendance::class);
     }
-    public function message()
+
+    public function teacher()
     {
-        return $this->hasMany(Message::class);
+        return $this->belongsTo(Teacher::class);
     }
 }

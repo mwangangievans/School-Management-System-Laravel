@@ -9,6 +9,7 @@ use App\Teacher;
 use Twilio\Rest\Client;
 use App\UsersPhoneNumber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\Parent_;
 
 
@@ -51,6 +52,15 @@ class TwilioController extends Controller
             $lectures =Teacher::all();
 
              return view('sms', compact(["students","parents","lectures"]));
+    }
+    public function student()
+    {
+        // $students = Student::all();
+                $user = Auth::user();
+
+        $teacher = Teacher::latest()->with('stud')->findOrFail($user->teacher->id);
+
+        return view('dashboard.teacher.sms',compact('teacher'));
     }
     /**
      * Store a new user phone number.
